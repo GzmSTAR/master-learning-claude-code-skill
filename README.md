@@ -15,6 +15,12 @@ agent: general-purpose
 
 That means the research pass runs in a forked context, keeping exploration separate from the main implementation conversation.
 
+## The Problem It Solves
+
+AI coding agents are fast, but unfamiliar domains often punish speed. If an agent starts coding before reading current docs, paper assumptions, GitHub examples, local project conventions, and known failure modes, the result can be technically plausible but wrong.
+
+`master-learning` adds a repeatable research gate before implementation. It turns vague uncertainty into a source-backed `Learning Brief`, so Claude Code can plan and build from evidence instead of stale memory or guesses.
+
 ## What This Skill Does
 
 Many coding agents can write code quickly, but they often fail when the task requires learning first. A new framework, a paper-backed method, a GitHub ecosystem, a changing API, or a project with strong local conventions can make direct implementation risky.
@@ -90,19 +96,45 @@ The 128-iteration stability run reached `score 1.0` and passed the release gate.
 
 ### Personal Install
 
+Windows PowerShell:
+
 ```powershell
 git clone https://github.com/GzmSTAR/master-learning-claude-code-skill.git
 Copy-Item -Recurse -Force .\master-learning-claude-code-skill\.claude\skills\master-learning "$env:USERPROFILE\.claude\skills\master-learning"
 ```
 
+macOS / Linux:
+
+```bash
+git clone https://github.com/GzmSTAR/master-learning-claude-code-skill.git
+mkdir -p ~/.claude/skills
+cp -R master-learning-claude-code-skill/.claude/skills/master-learning ~/.claude/skills/master-learning
+```
+
 ### Project Install
+
+Windows PowerShell:
 
 ```powershell
 git clone https://github.com/GzmSTAR/master-learning-claude-code-skill.git
 Copy-Item -Recurse -Force .\master-learning-claude-code-skill\.claude\skills\master-learning .\.claude\skills\master-learning
 ```
 
+macOS / Linux:
+
+```bash
+git clone https://github.com/GzmSTAR/master-learning-claude-code-skill.git
+mkdir -p .claude/skills
+cp -R master-learning-claude-code-skill/.claude/skills/master-learning .claude/skills/master-learning
+```
+
 Restart Claude Code if the skill list does not refresh automatically.
+
+### Quick Check
+
+```bash
+ls ~/.claude/skills/master-learning
+```
 
 ## Usage
 
