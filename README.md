@@ -64,8 +64,11 @@ This release includes a Microsoft SkillOpt-inspired optimization protocol. It tr
 - `.claude/skills/master-learning/training/skillopt-run-2026-06-21.md`
 - `.claude/skills/master-learning/training/benchmark-scenarios.json`
 - `.claude/skills/master-learning/training/skillopt-run-2026-06-21-round2.md`
+- `.claude/skills/master-learning/training/skillopt-run-2026-06-21-128.md`
 
 The second training run uses 6 held-out scenarios across latest API use, paper reproduction, GitHub adaptation, local-project-first work, low-risk skip behavior, and network-degraded research.
+
+The 128-iteration run repeats the same held-out scenario suite to verify stability after repeated SkillOpt-style rollouts.
 
 ## Structure
 
