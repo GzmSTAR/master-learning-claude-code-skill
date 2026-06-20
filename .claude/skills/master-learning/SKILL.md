@@ -51,6 +51,25 @@ This skill is optimized with a SkillOpt-inspired loop: rollout tasks, reflect on
 - Before implementation, run a validation gate: source coverage, local code fit, risk review, and acceptance criteria.
 - If the validation gate fails, return the gap instead of coding through uncertainty.
 
+## Training Discipline
+
+Use these SkillOpt-style controls during long projects or repeated skill improvement:
+
+- **Text learning rate:** prefer one or two precise rule edits after each failure, not a full rewrite.
+- **Rejected assumption buffer:** record assumptions that were disproven, such as stale APIs, abandoned repositories, incompatible licenses, weak papers, or examples that do not match the user's runtime.
+- **Held-out validation:** test the updated brief against a different scenario before trusting the new rule.
+- **Slow update:** if the same failure appears across multiple tasks, promote it from a one-off note into `SKILL.md` or a reference file.
+- **Regression check:** confirm the skill still skips trivial tasks and does not over-research direct fixes.
+
+## Scenario Handling Rules
+
+- For **latest framework/API tasks**, verify official docs, release notes, migration notes, and local dependency versions before recommending code.
+- For **paper reproduction tasks**, read the paper method, assumptions, evaluation setup, code/data availability, and mismatch with the user's environment.
+- For **GitHub adaptation tasks**, inspect license, recent activity, examples, tests, issues, dependency health, and whether reuse is allowed or only learning is appropriate.
+- For **local project tasks**, inspect manifests, configs, tests, docs, and existing conventions before external sources.
+- For **low-risk direct fixes**, explicitly skip deep research and state why the skill is not needed.
+- For **network-degraded tasks**, label missing external verification and continue only with local evidence or ask for permission/input when required.
+
 ## Output Contract
 
 Return Markdown with these sections:
@@ -88,10 +107,12 @@ If a network call fails, say the research was degraded. Never invent source find
 - Read `references/paper-learning.md` for paper-driven tasks.
 - Read `references/skillopt-training.md` to understand the local optimization protocol.
 - Read `references/anti-patterns.md` when the task is high-risk or evidence is thin.
+- Use `training/benchmark-scenarios.json` when regression-testing this skill.
 
 ## Integrity Rules
 
 - Prefer primary sources and current local repo facts.
+- Never fabricate source findings; if network access fails, say the research was degraded and explain what was not checked.
 - Do not fabricate citations, repository behavior, docs, APIs, or benchmark results.
 - Distinguish verified facts from inference.
 - Preserve source disagreement instead of smoothing it away.
