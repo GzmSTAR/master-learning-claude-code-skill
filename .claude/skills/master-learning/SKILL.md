@@ -40,6 +40,17 @@ Skip this skill for trivial edits, formatting, direct fixes with clear local evi
 6. **Audit source coverage.** Use `references/source-quality-rubric.md` and optionally `scripts/source_audit.py`. Mark gaps as provisional.
 7. **Return a Learning Brief only.** Do not edit project files from this skill run.
 
+## SkillOpt-Style Validation Gate
+
+This skill is optimized with a SkillOpt-inspired loop: rollout tasks, reflect on failures, apply bounded edits, and keep a candidate only when validation improves. In Claude Code, keep the same separation of concerns:
+
+- The forked skill run learns and validates; the main session decides whether to implement.
+- Treat the Learning Brief as the trainable procedure for the current project.
+- Make bounded updates when evidence changes: add, delete, or replace only the rules needed to improve the next decision.
+- Preserve rejected assumptions in the brief so they are not reintroduced later.
+- Before implementation, run a validation gate: source coverage, local code fit, risk review, and acceptance criteria.
+- If the validation gate fails, return the gap instead of coding through uncertainty.
+
 ## Output Contract
 
 Return Markdown with these sections:
@@ -75,6 +86,7 @@ If a network call fails, say the research was degraded. Never invent source find
 - Read `references/source-quality-rubric.md` to judge evidence.
 - Read `references/github-mining.md` before relying on GitHub repositories.
 - Read `references/paper-learning.md` for paper-driven tasks.
+- Read `references/skillopt-training.md` to understand the local optimization protocol.
 - Read `references/anti-patterns.md` when the task is high-risk or evidence is thin.
 
 ## Integrity Rules

@@ -55,6 +55,14 @@ The skill returns a Learning Brief with:
 - Recommendation and acceptance criteria
 - Open questions
 
+## SkillOpt-Style Optimization
+
+This release includes a Microsoft SkillOpt-inspired optimization protocol. It treats `SKILL.md` as the trainable artifact, applies bounded text edits, and accepts a candidate only after a validation gate. See:
+
+- `.claude/skills/master-learning/references/skillopt-training.md`
+- `.claude/skills/master-learning/scripts/skillopt_train.py`
+- `.claude/skills/master-learning/training/skillopt-run-2026-06-21.md`
+
 ## Structure
 
 ```text
